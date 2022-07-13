@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SPainter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SPoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SRect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SSize.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SColor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SWidget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SPushButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SLineEdit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SImage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCore\SElapsedTimer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SAbstractSlider.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SSlider.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SWidgets\SWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\Configer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SPainter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SPoint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SRect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SSize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SColor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SWidget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SGeometry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SPushButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SLineEdit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SImage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCore\SElapsedTimer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SAbstractSlider.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SSlider.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
