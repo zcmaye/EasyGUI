@@ -9,8 +9,9 @@ public:
 
 	void setX(int x);
 	void setY(int y);
-	int getX()const;
-	int getY()const;
+	int x()const;
+	int y()const;
+	friend std::ostream& operator<<(std::ostream& out, const SPoint& pos);
 
 	//判断一下点是否是空的
 	bool isNull();

@@ -22,7 +22,7 @@ void SWidget::move(int x, int y)
 
 void SWidget::move(const SPoint& pos)
 {
-	move(pos.getX(), pos.getY());
+	move(pos.x(), pos.y());
 }
 
 SPoint SWidget::pos() const
@@ -72,7 +72,7 @@ void SWidget::setGeometry(int x, int y, int w, int h)
 
 void SWidget::setGeometry(const SPoint& pos, const SSize& size)
 {
-	setGeometry(pos.getX(), pos.getY(), size.getWidth(), size.getHeight());
+	setGeometry(pos.x(), pos.y(), size.width(), size.height());
 }
 
 void SWidget::setGeometry(const SRect& rect)
@@ -88,6 +88,36 @@ SRect SWidget::rect() const
 SRect SWidget::geometry() const
 {
 	return SRect(d->x,d->y,d->w,d->h);
+}
+
+void SWidget::setWindowTitle(const std::string& title)
+{
+	d->title = title;
+}
+
+std::string SWidget::windowTitle() const
+{
+	return d->title;
+}
+
+void SWidget::setVisible(bool visible)
+{
+	d->isVisible = visible;
+}
+
+bool SWidget::isVisible() const
+{
+	return d->isVisible;
+}
+
+void SWidget::hidden()
+{
+	setVisible(false);
+}
+
+void SWidget::show()
+{
+	setVisible(true);
 }
 
 void SWidget::setBackgroundColor(const SColor& color)
@@ -129,8 +159,6 @@ bool SWidget::event(ExMessage* msg)
 	{
 	case WM_LBUTTONDOWN:
 	case WM_RBUTTONDOWN:	
-		sclog << msg->x <<"," << msg->y << std::endl;
-		sclog <<std::boolalpha<< geometry()<< contains(msg->x, msg->y) << std::endl;
 		if (contains(msg->x, msg->y))
 		{
 			mousePressEvent(msg);
@@ -143,11 +171,10 @@ bool SWidget::event(ExMessage* msg)
 		break;
 	case WM_LBUTTONUP:
 	case WM_RBUTTONUP:
-		//if (contains(msg->x, msg->y))
 			mouseReleaseEvent(msg);
 		break;
 	case WM_MOUSEMOVE:
-		if (d->isMouseTracking /*&& contains(msg->x, msg->y)*/)
+		if (d->isMouseTracking)
 		{
 			mouseMoveEvent(msg);
 		}
@@ -182,7 +209,8 @@ bool SWidget::event(ExMessage* msg)
 	default:
 		break;
 	}
-	paintEvent(msg);
+	if(isVisible())
+		paintEvent(msg);
 	return false;
 }
 

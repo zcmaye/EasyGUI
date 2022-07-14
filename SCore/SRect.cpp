@@ -11,12 +11,12 @@ SRect::SRect(int x, int y, int w, int h)
 }
 
 SRect::SRect(const SPoint& leftTop, const SPoint& rightBottom)
-	:SRect(leftTop.getX(),leftTop.getY(),rightBottom.getX(),rightBottom.getY())
+	:SRect(leftTop.x(),leftTop.y(),rightBottom.x(),rightBottom.y())
 {
 }
 
 SRect::SRect(const SPoint& leftTop, const SSize& size)
-	: SRect(leftTop.getX(), leftTop.getY(), leftTop.getX()+size.getWidth(), leftTop.getY()+size.getHeight())
+	: SRect(leftTop.x(), leftTop.y(), leftTop.x()+size.width(), leftTop.y()+size.height())
 {
 }
 
@@ -38,6 +38,11 @@ SPoint SRect::rightTop() const
 SPoint SRect::rightBottom()const
 {
 	return SPoint(m_x+m_w,m_y+m_h);
+}
+
+SPoint SRect::center() const
+{
+	return SPoint(m_x + m_w / 2, m_y + m_h / 2);
 }
 
 SSize SRect::size()const
@@ -77,19 +82,19 @@ void SRect::setY(int y)
 
 void SRect::setLeftTop(const SPoint& pos)
 {
-	setX(pos.getX());
-	setY(pos.getY());
+	setX(pos.x());
+	setY(pos.y());
 }
 
 void SRect::setLeftBottom(const SPoint& pos)
 {
-	m_h = m_w + pos.getY() - m_y;
+	m_h = m_w + pos.y() - m_y;
 }
 
 void SRect::moveCenter(const SPoint& pos)
 {
-	m_x = pos.getX() - m_w / 2;
-	m_y = pos.getY() - m_h / 2;
+	m_x = pos.x() - m_w / 2;
+	m_y = pos.y() - m_h / 2;
 }
 
 void SRect::translate(int dx, int dy)
@@ -100,7 +105,7 @@ void SRect::translate(int dx, int dy)
 
 bool SRect::contains(const SPoint& pos)
 {
-	return contains(pos.getX(),pos.getY());
+	return contains(pos.x(),pos.y());
 }
 
 bool SRect::contains(int x, int y)

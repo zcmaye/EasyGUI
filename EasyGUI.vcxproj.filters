@@ -56,6 +56,15 @@
     <ClCompile Include="SWidgets\SSlider.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SWidgets\SAction.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SMenuBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SWidgets\SMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SWidgets\SWindow.h">
@@ -104,6 +113,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SWidgets\SSlider.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SAction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SMenuBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SWidgets\SMenu.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

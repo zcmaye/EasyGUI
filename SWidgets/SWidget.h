@@ -14,6 +14,7 @@ struct SWidgetData
 		bkColor = hoverColor = curColor = SColor(230, 231, 232);
 		textColor = SColor::Black;
 		frameColor = SColor::Black;
+		isVisible = true;
 	}
 	int16 x = 0;
 	int16 y = 0;
@@ -28,6 +29,9 @@ struct SWidgetData
 	uint8 isMouseTracking : 1;		//是否开启鼠标追踪
 	uint8 isHover:1;			    //鼠标是否悬停
 	uint8 isFocus:1;				//控件是否有焦点
+	uint8 isVisible:1;				//是否可见
+
+	std::string title;				//标题
 };
 
 class SWidget :public SObject
@@ -59,6 +63,12 @@ public:
 	SRect rect()const;			//SRect(0,0,d->w,d->h)
 	SRect geometry()const;		//SRect(d->x,d->y,d->w,d->h)
 	
+	void setWindowTitle(const  std::string& title);
+	std::string windowTitle()const;
+	void setVisible(bool  visible);
+	bool isVisible()const;
+	void hidden();
+	void show();
 
 
 	//设置背景和边框颜色

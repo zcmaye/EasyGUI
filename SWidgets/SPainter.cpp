@@ -25,7 +25,7 @@ void SPainter::drawPoint(int x, int y)
 
 void SPainter::drawPoint(const SPoint& pos)
 {
-	drawPoint(pos.getX(), pos.getY());
+	drawPoint(pos.x(), pos.y());
 }
 
 void SPainter::drawLine(int x1, int y1, int x2, int y2)
@@ -37,7 +37,7 @@ void SPainter::drawLine(int x1, int y1, int x2, int y2)
 
 void SPainter::drawLine(const SPoint& p1, const SPoint& p2)
 {
-	drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+	drawLine(p1.x(), p1.y(), p2.x(), p2.y());
 }
 
 void SPainter::drawRect(int x, int y, int w, int h)
@@ -49,7 +49,7 @@ void SPainter::drawRect(int x, int y, int w, int h)
 
 void SPainter::drawRect(const SPoint& leftTop, const SPoint& rightBottom)
 {
-	drawRect(leftTop.getX(), leftTop.getY(), rightBottom.getX(), rightBottom.getY());
+	drawRect(leftTop.x(), leftTop.y(), rightBottom.x(), rightBottom.y());
 }
 
 void SPainter::drawRect(const SRect& rect)
@@ -78,7 +78,7 @@ void SPainter::drawEllipse(int x, int y, int w, int h)
 
 void SPainter::drawEllipse(const SPoint& leftTop, const SPoint& rightBottom)
 {
-	drawEllipse(leftTop.getX(), leftTop.getY(), rightBottom.getX() - leftTop.getX(), rightBottom.getY() - leftTop.getY());
+	drawEllipse(leftTop.x(), leftTop.y(), rightBottom.x() - leftTop.x(), rightBottom.y() - leftTop.y());
 }
 
 void SPainter::drawEllipse(const SRect& rect)
@@ -93,7 +93,7 @@ void SPainter::drawCircle(int x, int y, int radius)
 
 void SPainter::drawCircle(const SPoint& pos, int radius)
 {
-	drawCircle(pos.getX(), pos.getY(), radius);
+	drawCircle(pos.x(), pos.y(), radius);
 }
 
 void SPainter::drawText(int x, int y, const std::string& text)
@@ -111,7 +111,7 @@ void SPainter::drawText(int x, int y, int w, int h, const std::string& text)
 
 void SPainter::drawText(const SRect& rect, const std::string& text)
 {
-	drawText(rect.leftTop().getX(), rect.leftTop().getY(), rect.width(), rect.height(), text);
+	drawText(rect.leftTop().x(), rect.leftTop().y(), rect.width(), rect.height(), text);
 }
 
 void SPainter::drawImage(int x, int y, const SImage& image)

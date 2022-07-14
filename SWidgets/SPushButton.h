@@ -8,7 +8,7 @@ public:
 	SPushButton(SWidget* parent = nullptr);
 	SPushButton(const std::string& text,SWidget* parent = nullptr);
 	//设置鼠标点击的回调函数
-	void onClicked(OnClickedFun fun,void* data);
+	void onClicked(OnClickedFun fun,void* data = nullptr);
 protected:
 	void paintEvent(ExMessage* msg)override;
 	void mousePressEvent(ExMessage* msg)override;

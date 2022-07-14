@@ -9,8 +9,8 @@ public:
 
 	void setWidth(int w);
 	void setheight(int h);
-	int getWidth()const;
-	int getHeight()const;
+	int width()const;
+	int height()const;
 
 	//判断一下点是否是空的
 	bool isNull();

@@ -14,9 +14,12 @@ public:
 	SPoint leftBottom()const;
 	SPoint rightTop()const;
 	SPoint rightBottom()const;
+	SPoint center()const;
 	SSize size()const;
 	int width()const;
 	int height()const;
+	inline int x() { return m_x; };
+	inline int y() { return m_y; };
 
 	void setLeft(int x);
 	void setTop(int y);

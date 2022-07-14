@@ -33,6 +33,9 @@ private:
 	int m_value = 0;	//当前值
 	int m_step = 1;		//步长
 	int m_distance = 0;		//滑块距离左边/上边的距离
+	double m_ratio = 0.0;			//值和凹槽长度比率
+
+	void updateRatio();	//值和凹槽长度比率
 };
 
 #endif

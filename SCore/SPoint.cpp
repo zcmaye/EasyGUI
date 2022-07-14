@@ -21,12 +21,12 @@ void SPoint::setY(int y)
 	m_y = y;
 }
 
-int SPoint::getX() const
+int SPoint::x() const
 {
 	return m_x;
 }
 
-int SPoint::getY() const
+int SPoint::y() const
 {
 	return m_y;
 }
@@ -34,4 +34,10 @@ int SPoint::getY() const
 bool SPoint::isNull()
 {
 	return m_x == 0&& m_y ==0;
+}
+
+std::ostream& operator<<(std::ostream& out, const SPoint& pos)
+{
+	out << "SPoint(" << pos.m_x << "," << pos.m_y << ") ";
+	return  out;
 }

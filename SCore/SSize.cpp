@@ -21,12 +21,12 @@ void SSize::setheight(int h)
 	m_h = h;
 }
 
-int SSize::getWidth() const
+int SSize::width() const
 {
 	return m_w;
 }
 
-int SSize::getHeight() const
+int SSize::height() const
 {
 	return m_h;
 }

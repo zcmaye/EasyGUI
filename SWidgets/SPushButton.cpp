@@ -24,6 +24,7 @@ void SPushButton::onClicked(OnClickedFun fun,void*data)
 }
 
 
+
 void SPushButton::paintEvent(ExMessage* msg)
 {
 	//ªÊ÷∆∞¥≈•

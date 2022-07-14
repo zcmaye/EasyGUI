@@ -8,8 +8,7 @@ SAbstractSlider::SAbstractSlider(SWidget* parent)
 {
 	setMouseTracking(true);
 	setFixedSize(150, 20);
-	int m = min(d->w, d->h);
-	m_handleRect = SRect(d->x, d->y, m,m);
+	updateRatio();
 }
 
 void SAbstractSlider::setOrientation(EasyGUI::Orientation ori)
@@ -33,21 +32,33 @@ void SAbstractSlider::setRange(int min, int max)
 {
 	m_max = max;
 	m_min = min;
+	updateRatio();
 }
 
 void SAbstractSlider::setValue(int val)
 {
 	m_value = val;
+	if (orientation() == EasyGUI::Horizontal)
+	{
+		m_handleRect.setX(d->x + m_value * m_ratio );
+	}
+	else if (orientation() == EasyGUI::Vertical)
+	{
+		m_handleRect.setY(d->y + m_value * m_ratio);
+	}
+
 }
 
 void SAbstractSlider::setMaximum(int max)
 {
 	m_max = max;
+	updateRatio();
 }
 
 void SAbstractSlider::setMinimum(int min)
 {
 	m_min = min;
+	updateRatio();
 }
 
 int SAbstractSlider::maximum() const
@@ -96,59 +107,55 @@ void SAbstractSlider::mouseMoveEvent(ExMessage* msg)
 {
 	if (m_isPressHandle)
 	{
+#if 1
 		if (m_orientation == EasyGUI::Horizontal)
 		{
+			//移动滑块
 			m_handleRect.setX(msg->x - m_handleRect.width() / 2);
-			if (m_handleRect.leftTop().getX() < d->x)
+			//限定滑块的滑动位置
+			if (m_handleRect.x() < d->x)
 			{
 				m_handleRect.setX(d->x);
 			}
-			else if (m_handleRect.rightTop().getX() > d->x + d->w)
+			else if (m_handleRect.rightTop().x() > d->x + d->w)
 			{
-				m_handleRect.setX(d->x + d->w - m_handleRect.width());
+				m_handleRect.setX(geometry().rightTop().x() - m_handleRect.width());
 			}
-			else  //正常移动的时候，改变数据
-			{
-				int w = d->w - min(d->w, d->h);	//滑块有效长度（像素）
-				double ds = (double)w / (m_max - m_min);	//m_value每变化1,滑块移动的像素数量
-				sclog << w << " " << ds<<" dis"<<m_distance << std::endl;
-				if (m_distance % (int)ds == 0)
-				{
-					m_value = m_distance / ds;
-				}
-
-				if (m_distance <= 0)
-				{
-					m_value = m_min;
-				}
-				else if (m_distance >= w)
-				{
-					m_value = m_max;
-				}
-
-
-				//保存上次的距离
-				m_distance = msg->x - d->x - min(d->w, d->h);
-				sclog << m_value << std::endl;
-			}
+			//正常移动的时候，改变数据
+			m_distance = m_handleRect.x() - d->x;		//滑块当前相对于起点的距离
 		}
 		else if (m_orientation == EasyGUI::Vertical)
 		{
-			m_handleRect.setY(msg->y - m_handleRect.height()/2);
-			if (m_handleRect.leftTop().getY() <= d->y)
+			m_handleRect.setY(msg->y - m_handleRect.height() / 2);
+			if (m_handleRect.leftTop().y() <= d->y)
 			{
 				m_handleRect.setY(d->y);
 			}
-			else if (m_handleRect.leftBottom().getY() > d->y + d->h)
+			else if (m_handleRect.leftBottom().y() > d->y + d->h)
 			{
 				m_handleRect.setY(d->y + d->h - m_handleRect.height());
 			}
+			m_distance = m_handleRect.y() - d->y;		//滑块当前相对于起点的距离
 		}
+
+		//根据m_distance求出当前值
+		//if ((int)m_ratio != 0 && m_distance % (int)m_ratio == 0)
+		{
+			m_value = m_distance / m_ratio;
+			sclog << m_value << std::endl;
+		}	
+#endif
 	}
 }
 
 void SAbstractSlider::moveEvent(ExMessage* msg)
 {
-	int m = min(d->w, d->h);
-	m_handleRect = SRect(d->x, d->y, m, m);
+	int minLen = min(d->w, d->h);
+	m_handleRect = SRect(d->x, d->y, minLen, minLen);
+}
+
+void SAbstractSlider::updateRatio()
+{
+	int avaLen = max(d->w, d->h) - min(d->w, d->h);	//凹槽有效长度（像素）
+	m_ratio = (double)avaLen / (m_max - m_min);		//m_value每变化1,滑块移动的像素数量	
 }

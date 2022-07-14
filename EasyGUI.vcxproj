@@ -148,7 +148,10 @@
     <ClCompile Include="SCore\SRect.cpp" />
     <ClCompile Include="SCore\SSize.cpp" />
     <ClCompile Include="SWidgets\SAbstractSlider.cpp" />
+    <ClCompile Include="SWidgets\SAction.cpp" />
     <ClCompile Include="SWidgets\SLineEdit.cpp" />
+    <ClCompile Include="SWidgets\SMenu.cpp" />
+    <ClCompile Include="SWidgets\SMenuBar.cpp" />
     <ClCompile Include="SWidgets\SPainter.cpp" />
     <ClCompile Include="SWidgets\SPushButton.cpp" />
     <ClCompile Include="SWidgets\SSlider.cpp" />
@@ -166,7 +169,10 @@
     <ClInclude Include="SCore\SRect.h" />
     <ClInclude Include="SCore\SSize.h" />
     <ClInclude Include="SWidgets\SAbstractSlider.h" />
+    <ClInclude Include="SWidgets\SAction.h" />
     <ClInclude Include="SWidgets\SLineEdit.h" />
+    <ClInclude Include="SWidgets\SMenu.h" />
+    <ClInclude Include="SWidgets\SMenuBar.h" />
     <ClInclude Include="SWidgets\SPainter.h" />
     <ClInclude Include="SWidgets\SPushButton.h" />
     <ClInclude Include="SWidgets\SSlider.h" />
